@@ -11,16 +11,6 @@ import org.bytedeco.javacv.FFmpegFrameRecorder;
 import org.bytedeco.javacv.Frame;
 import org.bytedeco.javacv.FrameGrabber.Exception;
 
-/**
- * 按帧录制视频,并保存在本地
- *
- * @author xiaoyutongxue6
- * @date 2021-03-01
- * @param inputFile-该地址可以是网络直播/录播地址，也可以是远程/本地文件路径
- * @param outputFile-该地址只能是文件地址，如果使用该方法推送流媒体服务器会报错，原因是没有设置编码格式
- *
- *  考虑一下多线程的问题，这样就可以实现预览和存储同时进行
- */
 public class test {
 
     public static void main(String[] args) throws Exception, org.bytedeco.javacv.FrameRecorder.Exception {
@@ -30,6 +20,16 @@ public class test {
         frameRecord(inputFile, outputFile, 1);
     }
 
+    /**
+     * 按帧录制视频,并保存在本地
+     *
+     * @author xiaoyutongxue6
+     * @date 2021-03-01
+     * @param inputFile-该地址可以是网络直播/录播地址，也可以是远程/本地文件路径
+     * @param outputFile-该地址只能是文件地址，如果使用该方法推送流媒体服务器会报错，原因是没有设置编码格式
+     *
+     *  考虑一下多线程的问题，这样就可以实现预览和存储同时进行
+     */
     public static void frameRecord(String inputFile, String outputFile, int audioChannel)
             throws Exception, org.bytedeco.javacv.FrameRecorder.Exception {
         // 设置为全局控制变量，用于控制录制结束
